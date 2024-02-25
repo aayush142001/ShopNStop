@@ -9,6 +9,7 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
+import { useNavigate } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -16,7 +17,7 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
-
+  const navigate=useNavigate();
   const[openAuthModal, setOpenAuthMOdal]=useState(false);
   const[anchorEl,setAnchorEl]=useState(null);
   const openUserMenu=Boolean(anchorEl);
@@ -36,6 +37,10 @@ export default function Navigation() {
   }
 
   const handleCategoryClick = (category,section,item,close) => {
+    console.log(category.id);
+    console.log(section);
+    console.log(item);
+    navigate(`/${category.id}/${section.id}/${item.name}`)
     close();
   }
 
@@ -221,7 +226,7 @@ export default function Navigation() {
             <div className="flex h-16 items-center px-11">
               <button
                 type="button"
-                className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
                 onClick={() => setOpen(true)}
               >
                 <span className="sr-only">Open menu</span>
@@ -321,7 +326,7 @@ export default function Navigation() {
                                           <ul
                                             role="list"
                                             aria-labelledby={`${section.name}-heading`}
-                                            className="mt-6 ml-12 space-y-6 sm:mt-4 sm:space-y-4"
+                                            className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                           >
                                             {section.items.map((item) => (
                                               <li
@@ -401,7 +406,7 @@ export default function Navigation() {
                         Profile
                         </MenuItem>
 
-                        <MenuItem >
+                        <MenuItem onClick={()=>navigate("/account/order")} >
                           My Orders
                         </MenuItem>
 
