@@ -33,10 +33,10 @@ Basic Architecture of each Components :
 
 1. products : 
 
-    create product
-    filter product 
-    get all product
-    get product By id
+    create product,
+    filter product, 
+    get all product,
+    get product By id,
     delete product
 
 2. Cart
