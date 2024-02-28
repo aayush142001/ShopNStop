@@ -53,7 +53,7 @@ Basic Architecture of each Components :
     placed order,
     confirmed order,
     shipped order,
-    delvered order
+    delivered order
 
 5. order item 
 
