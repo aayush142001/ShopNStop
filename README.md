@@ -41,18 +41,18 @@ Basic Architecture of each Components :
 
 2. Cart
 
-    create cart
-    add cart item
+    create cart,
+    add cart item,
     finduser cart
 
 3. order
 
-    create order
-    find order by id
-    users order history
-    placed order
-    confirmed order
-    shipped order
+    create order,
+    find order by id,
+    users order, history,
+    placed order,
+    confirmed order,
+    shipped order,
     delvered order
 
 5. order item 
@@ -61,8 +61,8 @@ Basic Architecture of each Components :
     
 6. Ratings
 
-    create rating
-    get products rating 
+    create rating,
+    get products, rating 
 
 
 
