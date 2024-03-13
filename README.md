@@ -1,4 +1,6 @@
-# Shop'n'Stop
+# Shop'n'Stop - VASTRAGHAR
+
+An e-commerce website developed with ReactJS for the frontend and Spring Boot for the backend offers a seamless user experience with responsive design and efficient data handling, ensuring robust performance and scalability.
 
 Full Stack Ecommerce Website Development Using React, Spring Boot, Material UI, Tailwind CSS, MySql And Payment Gatway and use Postman API to test the api.
 
