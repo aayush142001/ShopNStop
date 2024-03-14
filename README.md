@@ -1,4 +1,4 @@
-# Shop'n'Stop
+# Shop'n'Stop - VASTRAGHAR
 
 An e-commerce website developed with ReactJS for the frontend and Spring Boot for the backend offers a seamless user experience with responsive design and efficient data handling, ensuring robust performance and scalability.
 
@@ -12,7 +12,7 @@ To install the npm packages which is especially needed they are :
 Need to implementation : 
 1. Authentication 
 2. Spring Security 
-3. JWT 
+3. JWT
 
 Basic Necessary :
 
