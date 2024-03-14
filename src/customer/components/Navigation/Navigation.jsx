@@ -6,11 +6,14 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import React, { useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AuthModal from "../../Auth/AuthModal";
+import { getUser, logout } from "../../../State/Auth/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,7 +25,10 @@ export default function Navigation() {
   const[openAuthModal, setOpenAuthMOdal]=useState(false);
   const[anchorEl,setAnchorEl]=useState(null);
   const openUserMenu=Boolean(anchorEl);
-  // const jwt=localStorage.getItem("jwt");
+  const jwt=localStorage.getItem("jwt");
+  const {auth} = useSelector(store=>store)
+  const dispatch=useDispatch();
+  const location=useLocation();
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,6 +41,7 @@ export default function Navigation() {
   }
   const handleClose = (event) => {
     setOpenAuthMOdal(false);
+
   }
 
   const handleCategoryClick = (category,section,item,close) => {
@@ -43,6 +50,26 @@ export default function Navigation() {
     console.log(item);
     navigate(`/${category.id}/${section.id}/${item.name}`)
     close();
+  }
+
+  useEffect(()=>{
+    if(jwt){
+        dispatch(getUser(jwt))
+    }
+},[jwt,auth.jwt])
+  useEffect(()=>{
+    if(auth.user){
+      handleClose()
+    }
+    if(location.pathname==="/login" || location.pathname==="/register"){
+      navigate(-1);
+    }
+
+  },[auth.user])
+
+  const handleLogout=()=>{
+    dispatch(logout())
+    handleCloseUserMenu()
   }
 
 
@@ -377,7 +404,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {false ? (
+                  {auth.user?.firstName ? (
                     <div>
                       <Avatar 
                        className="text-white"
@@ -392,7 +419,7 @@ export default function Navigation() {
                        }}
 
                       >
-                        A
+                        {auth.user?.firstName[0].toUpperCase()}
                       </Avatar>
                       <Menu
                         id="basic-menu"
@@ -411,7 +438,7 @@ export default function Navigation() {
                           My Orders
                         </MenuItem>
 
-                        <MenuItem>
+                        <MenuItem onClick={handleLogout}>
                         Logout
                         </MenuItem>
 
