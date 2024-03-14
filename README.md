@@ -12,7 +12,11 @@ To install the npm packages which is especially needed they are :
 Need to implementation : 
 1. Authentication 
 2. Spring Security 
-3. JWT 
+3. JWT
+
+Basic Necessary : 
+1. Redux
+2. Axios - used to dispatch the API
 
 Features : 
 1. Carosel 
