@@ -1,5 +1,7 @@
 # Shop'n'Stop
 
+An e-commerce website developed with ReactJS for the frontend and Spring Boot for the backend offers a seamless user experience with responsive design and efficient data handling, ensuring robust performance and scalability.
+
 Full Stack Ecommerce Website Development Using React, Spring Boot, Material UI, Tailwind CSS, MySql And Payment Gatway and use Postman API to test the api.
 
 To install the npm packages which is especially needed they are : 
@@ -11,6 +13,11 @@ Need to implementation :
 1. Authentication 
 2. Spring Security 
 3. JWT 
+
+Basic Necessary :
+
+1. Redux
+2. Axios - used to dispatch the API
 
 Features : 
 1. Carosel 
