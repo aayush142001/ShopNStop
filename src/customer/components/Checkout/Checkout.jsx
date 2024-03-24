@@ -61,10 +61,6 @@ export default function Checkout() {
             >
               Back
             </Button>
-            
-            
-
-            
           </Box>
 
           <div className="mt-10">

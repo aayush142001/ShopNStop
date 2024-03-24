@@ -24,7 +24,7 @@ const DeliveryAdressForm = () => {
         }
         const orderData={address,navigate}
         dispatch(createOrder(orderData))
-        console.log("address",address)
+        
     }
   return (
     <div>
@@ -56,7 +56,7 @@ const DeliveryAdressForm = () => {
                     required
                     id="firstName"
                     name="firstName"
-                    label="FIrst Name"
+                    label="First Name"
                     fullWidth
                     autoComplete="given-name"
                   />
@@ -109,9 +109,9 @@ const DeliveryAdressForm = () => {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
-                    id="zip"
-                    name="zip"
-                    label="Zip / Postal code"
+                    id="zipCode"
+                    name="zipCode"
+                    label="ZipCode"
                     fullWidth
                     autoComplete="shipping postal-code"
                   />
