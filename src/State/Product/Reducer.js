@@ -1,27 +1,34 @@
-import { FIND_PRODUCT_BY_ID_FAILURE, FIND_PRODUCT_BY_ID_REQUEST, FIND_PRODUCT_BY_ID_SUCCESS, FIND_PRODUCT_FAILURE, FIND_PRODUCT_REQUEST, FIND_PRODUCT_SUCCESS } from "./ActionType"
+import {
+    FIND_PRODUCT_BY_ID_FAILURE,
+    FIND_PRODUCT_BY_ID_REQUEST,
+    FIND_PRODUCT_BY_ID_SUCCESS,
+    FIND_PRODUCT_FAILURE,
+    FIND_PRODUCT_REQUEST,
+    FIND_PRODUCT_SUCCESS
+} from "./ActionType";
 
-const initialState={
-    products:[],
-    product:null,
-    loading:false,
-    error:null
-}
+const initialState = {
+    products: [],
+    product: null,
+    loading: false,
+    error: null
+};
 
-export const customerProductReducer=(state=initialState,action)=>{
-    switch(action.type){
+export const customerProductReducer = (state = initialState, action) => {
+    const { type, payload } = action;
+
+    switch (type) {
         case FIND_PRODUCT_REQUEST:
         case FIND_PRODUCT_BY_ID_REQUEST:
-            return {...state,loading:true,error:null}
+            return { ...state, loading: true, error: null };
         case FIND_PRODUCT_SUCCESS:
-            return {...state,loading:false,error:null,products:action.payload}
+            return { ...state, loading: false, error: null, products: payload };
         case FIND_PRODUCT_BY_ID_SUCCESS:
-            return {...state,loading:false,error:null,products:action.payload}
-
+            return { ...state, loading: false, error: null, product: payload };
         case FIND_PRODUCT_FAILURE:
         case FIND_PRODUCT_BY_ID_FAILURE:
-            return {...state,loading:false,error:action.payload}
+            return { ...state, loading: false, error: payload };
         default:
             return state;
-        
     }
-}
+};

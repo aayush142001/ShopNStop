@@ -9,7 +9,6 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import ProductCard from "./ProductCard";
-import { mens_kurta } from "../../../Data/mens_kurta";
 import Pagination from '@mui/material/Pagination';
 import { filters, singleFilters } from "./FilterData";
 import {
@@ -23,6 +22,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findProducts } from "../../../State/Product/Action";
+import { mens_kurta } from "../../../Data/Men/mens_kurta";
 
 const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
@@ -434,12 +434,15 @@ export default function Product() {
               </form>
 
               </div>
+
+
+             
               
               {/* Product grid */}
               <div className="lg:col-span-4 w-full">
-                <div className="flex flex-wrap justify-centerbi-white py-5">
-                  {products.products && products.products?.content?.map((item) => (
-                    <ProductCard product={item} />
+                <div className="flex flex-wrap  bi-white py-5">
+                {products.products && products.products?.content?.map((item, index) => (
+      <ProductCard key={index} product={item} />
                   ))}
                 </div>
               </div>
@@ -448,7 +451,7 @@ export default function Product() {
 
           <section className="w-full px=[3.6rem]">
             <div className="px-4 py-5 flex justify-center">
-            <Pagination count={products.products?.totalPages} color="secondary" 
+            <Pagination count={5} color="secondary" 
             onChange={handlePaginationChange}/>
             </div>
           </section>

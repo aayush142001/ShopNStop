@@ -3,12 +3,13 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
-import { mens_kurta } from "../../../Data/mens_kurta";
+import { mens_kurta } from "../../../Data/Men/mens_kurta";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findProductsById } from "../../../State/Product/Action";
 import { addItemToCart } from "../../../State/Cart/Action";
+import ProductCard from "../Product/ProductCard";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -400,7 +401,7 @@ dispatch(findProductsById(data))
         <section className="pt-10 text-xl font-bold">
             <h1 className="py-5 text-xl">Similar Products</h1>
             <div className="flex flex-wrap space-y-5">
-                {mens_kurta.map((item)=><HomeSectionCard product={item}/>)}
+                {mens_kurta.map((item)=><ProductCard product={item}/>)}
             </div>
 
         </section>

@@ -18,6 +18,7 @@ export const register=(userData)=> async (dispatch)=>{
         console.log("user",user)
         dispatch(registerSuccess(user.jwt))
     }catch(error){
+        alert("Email is Already Used with Another Account ")
         dispatch(registerFailure(error.message))
     }
 }
@@ -31,12 +32,14 @@ export const login=(userData)=> async (dispatch)=>{
     try{
         const response=await axios.post(`${API_BASE_URL}/auth/signin`,userData)
         const user=response.data;
+        
         if(user.jwt){
             localStorage.setItem("jwt",user.jwt)
         }
-        console.log("user",user)
         dispatch(loginSuccess(user.jwt))
+        
     }catch(error){
+        alert("Please enter the correct password")
         dispatch(loginFailure(error.message))
     }
 }
@@ -55,7 +58,6 @@ export const getUser=(jwt)=> async (dispatch)=>{
             }
         })
         const user=response.data;
-        console.log("user",user)
         dispatch(getUserSuccess(user))
     }catch(error){
         dispatch(getUserFailure(error.message))

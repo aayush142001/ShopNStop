@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./ProductCard.css";
 const ProductCard = ({ product }) => {
   const navigate=useNavigate();
+  console.log("product-aayush",product);
   return (
     <div onClick={()=>navigate(`/product/${product.id}`)} className="productCard w-[15rem] m-3 transition-all cursor-pointer">
       <div className="h-[20rem]">

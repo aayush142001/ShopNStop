@@ -22,8 +22,8 @@ export const authReducer=(state=initialState,action)=>{
         case GET_USER_FAILURE:
             return {...state, isLoading:false,error:action.payload}
         case LOGOUT:
-            return {...initialState}  
+            return initialState; 
         default:
             return state;
     }
-}
+};
