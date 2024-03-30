@@ -18,7 +18,7 @@ const DeliveryAdressForm = () => {
             streetAddress:data.get("address"),
             city:data.get("city"),
             state:data.get("state"),
-            zipcode:data.get("zip"),
+            zipCode:data.get("zip"),
             mobile:data.get("phoneNumber")
 
         }
@@ -109,8 +109,8 @@ const DeliveryAdressForm = () => {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
-                    id="zipCode"
-                    name="zipCode"
+                    id="zip"
+                    name="zip"
                     label="ZipCode"
                     fullWidth
                     autoComplete="shipping postal-code"

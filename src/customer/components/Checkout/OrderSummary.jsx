@@ -23,6 +23,8 @@ const OrderSummary = () => {
     const handleCheckout=()=>{
         dispatch(createPayment(orderId))
     }
+
+    console.log("2-",order.order?.shippingAddress)
     
   return (
     <div>

@@ -73,12 +73,11 @@ export default function ProductDetails() {
   const dispatch=useDispatch();
   const {products}=useSelector(store=>store);
 
-  console.log("----",params.productId)
-  console.log("image",products.products?.imageUrl)
+ 
 
   const handleAddToCart=()=>{
     const data={productId:params.productId,size:selectedSize.name}
-    console.log("data _ ",data)
+    console.log("data - ",data)
     dispatch(addItemToCart(data))
     navigate("/cart")
 
@@ -87,6 +86,8 @@ export default function ProductDetails() {
     const data={productId:params.productId}
 dispatch(findProductsById(data))
   },[params.productId])
+
+  const discountPercent = Math.floor(((products.product?.price - products.product?.discountedPrice) / products.product?.price) * 100);
 
   return (
     <div className="bg-white lg:px-20">
@@ -133,7 +134,7 @@ dispatch(findProductsById(data))
           <div className="flex flex-col items-center">
             <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
               <img
-                src={products.products?.imageUrl} 
+                src={products.product?.imageUrl} 
                 alt=""
                 className="h-full w-full object-cover object-center"
               />
@@ -160,10 +161,10 @@ dispatch(findProductsById(data))
             <div className="lg:col-span-2 text-left">
               <h1 className="text-lg lg:text-xl font-semibold text-gray-900">
                 {" "}
-                {products.products?.brand}
+                {products.product?.brand}
               </h1>
               <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1">
-                {products.products?.title}
+                {products.product?.title}
               </h1>
             </div>
 
@@ -175,9 +176,9 @@ dispatch(findProductsById(data))
             text-gray-900 mt-6"
               >
                
-                <p className="font-semibold">₹{products.products?.discountedPrice}</p>
-                <p className="opacity-50 line-through">₹{products.products?.price}</p>
-                <p className="text-green-600 font-semibold">{products.products?.discountPercent}%</p>
+                <p className="font-semibold">₹{products.product?.discountedPrice}</p>
+                <p className="opacity-50 line-through">₹{products.product?.price}</p>
+                <p className="text-green-600 font-semibold">{discountPercent}%</p>
               </div>
 
               {/* Reviews */}

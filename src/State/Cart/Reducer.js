@@ -7,6 +7,7 @@ const initialState={
     error:null
 }
 
+
 export const cartReducer=(state=initialState,action)=>{
     switch(action.type){
         case ADD_ITEM_TO_CART_REQUEST:
@@ -14,7 +15,7 @@ export const cartReducer=(state=initialState,action)=>{
         case ADD_ITEM_TO_CART_SUCCESS:
             return {
                 ...state,
-                cartItems:[...state.cartItems,action.payload.cartItems],
+                cartItems:[...state.cartItems,action.payload],
                 loading:false,
             };
         case ADD_ITEM_TO_CART_FAILURE:

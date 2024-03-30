@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./ProductCard.css";
 const ProductCard = ({ product }) => {
   const navigate=useNavigate();
-  console.log("product-aayush",product);
+  const discountPercent = Math.floor(((product.price - product.discountedPrice) / product.price) * 100);
+  
+  
   return (
     <div onClick={()=>navigate(`/product/${product.id}`)} className="productCard w-[15rem] m-3 transition-all cursor-pointer">
       <div className="h-[20rem]">
@@ -23,9 +25,9 @@ const ProductCard = ({ product }) => {
         </div>
 
         <div className="flex items-center space-x-2">
-          <p className="font-semibold">{product.discountedPrice}</p>
-          <p className="line-through opacity-50">{product.price}</p>
-          <p className="text-green-600 font-semibold ">{product.discountPersent}% off</p>
+          <p className="font-semibold">₹{product.discountedPrice}</p>
+          <p className="line-through opacity-50">₹{product.price}</p>
+          <p className="text-green-600 font-semibold ">{discountPercent}% off</p>
         </div>
       </div>
     </div>

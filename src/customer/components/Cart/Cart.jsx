@@ -1,8 +1,8 @@
-import { Button } from '@mui/material'
+import { Button, CircularProgress } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { getCart } from '../../../State/Cart/Action'
+import { addItemToCart, getCart, updateCartItem } from '../../../State/Cart/Action'
 import CartItem from './CartItem'
 
 const Cart = ({cartItems}) => {
@@ -13,10 +13,13 @@ const Cart = ({cartItems}) => {
     const handleCheckout=()=>{
         navigate("/checkout?step=2")
     }
+    
     useEffect(()=>{
         dispatch(getCart())
     },[cart.updateCartItem,cart.deleteCartItem])
 
+    
+ {cart.cart?.cartItems.map((item)=> <CartItem key={item.id} item={item}/>)}
   return (
     <div>
         <div className='lg:grid grid-cols-3 lg:px-16 relative'>
