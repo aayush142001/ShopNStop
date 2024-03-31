@@ -127,6 +127,7 @@ console.log("............",products.products?.content)
             as="div"
             className="relative z-40 lg:hidden"
             onClose={setMobileFiltersOpen}
+            
           >
             <Transition.Child
               as={Fragment}
@@ -440,7 +441,7 @@ console.log("............",products.products?.content)
               {/* Product grid */}
               <div className="lg:col-span-4 w-full">
                 <div className="flex flex-wrap  bi-white py-5">
-            
+          
                 {products.products && products.products?.content?.map((item) => (
                        <ProductCard product={item} />
                   ))}
