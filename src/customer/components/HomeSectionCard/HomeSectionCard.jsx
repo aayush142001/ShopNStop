@@ -1,8 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const HomeSectionCard = ({ product }) => {
+
+
+  const navigate = useNavigate();
+
+  console.log("Aayush",product.imageUrl);
+  console.log("check",product.title);
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
+  
+
+
+
   return (
-    <div
+    <div key={product.id} onClick={() => handleProductClick(product.id)}
       className="cursor-pointer flex flex-col 
     items-center bg-white rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3 border"
     >
